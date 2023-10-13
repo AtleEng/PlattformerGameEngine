@@ -9,10 +9,17 @@ namespace Engine
     {
         public override void Start()
         {
-
+            System.Console.WriteLine("Player Start");
         }
         public override void Update(float delta)
         {
+            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT))
+            {
+                Vector2 spawnPos = WorldSpace.GetVirtualMousePos();
+                spawnPos = new Vector2((int)spawnPos.X, (int)spawnPos.Y);
+                EntityManager.SpawnEntity(new Block(), spawnPos);
+            }
+
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP))
             {
                 gameEntity.transform.size.Y += 2f;

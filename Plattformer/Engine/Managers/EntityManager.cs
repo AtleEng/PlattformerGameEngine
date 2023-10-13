@@ -11,6 +11,7 @@ namespace Engine
         public static void SpawnEntity(GameEntity entity, Vector2 position)
         {
             entity.transform.position = position;
+            entity.OnInnit();
             foreach (Component component in entity.components.Values)
             {
                 component.Start();

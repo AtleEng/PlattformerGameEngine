@@ -75,7 +75,8 @@ namespace CoreEngine
             //render all entities's spriteRenderers
             foreach (GameEntity gameEntity in Core.gameEntities)
             {
-                Sprite? spriteComponent = gameEntity.components[typeof(Sprite)] as Sprite;
+
+                Sprite? spriteComponent = gameEntity.components.ContainsKey(typeof(Sprite)) ? gameEntity.components[typeof(Sprite)] as Sprite : null;
                 if (spriteComponent != null)
                 {
                     Vector2 p = WorldSpace.ConvertToCameraPosition(gameEntity.transform.position);

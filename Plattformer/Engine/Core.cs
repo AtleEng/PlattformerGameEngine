@@ -21,12 +21,7 @@ namespace CoreEngine
         static float newTime = 0;
         public static void Start()
         {
-            GameEntity gameEntity = new();
-            gameEntity.AddComponent<Sprite>(new Sprite());
-
-            gameEntity.AddComponent<PlayerMovement>(new PlayerMovement());
-
-            EntityManager.SpawnEntity(gameEntity, Vector2.Zero);
+            EntityManager.SpawnEntity(new GameManager(), Vector2.Zero);
 
             AddSystem(new ScriptSystem());
             AddSystem(new SpriteSystem());
